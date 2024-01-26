@@ -24,7 +24,7 @@ const slides = [
 // elements du dom
 const carrouselImage = document.querySelectorAll('#banner .banner-img'); // selection de la totalité du contenu de l'id
 const dotsContainer = document.querySelector('#banner .dots'); // selection boutons 
-let currentSlideIndex = 0;// variable index indiquand image actuel afficher
+let currentSlideIndex = 0;// variable index indiquant image actuel afficher
 
 function updateSlide(index) {
 	carrouselImage.forEach((image, i) => {// boucle prenant images du tableau et les alts & chemin 
@@ -55,8 +55,8 @@ const arrowRight = document.querySelector('#banner .arrow_right');
 
 // click fleche gauche
 arrowLeft.addEventListener('click', () => {
-	console.log('clic sur la fleche de gauche');
 	changeSlides('prev');
+
 });
 
 // click fleche droite
