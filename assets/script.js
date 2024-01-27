@@ -23,7 +23,7 @@ const slides = [
 
 // elements du dom
 const carrouselImage = document.querySelectorAll('#banner .banner-img'); // selection de la totalité du contenu de l'id
-const dotsContainer = document.querySelector('#banner .dots'); // selection boutons 
+const dotsBullet = document.querySelector('#banner .dots'); // selection boutons 
 let currentSlideIndex = 0;// variable index indiquant image actuel afficher
 
 function updateSlide(index) {
@@ -37,13 +37,13 @@ function updateSlide(index) {
 	tagLine.innerHTML = slides[index].tagLine;//paragraphe remplacer contenu par rapport au slide
 
 	// bouton selon l'image du slide selection la bonne classe quand l'image et appeller 
-	const dots = document.querySelectorAll('#banner .dots .dot');
-	dots.forEach((dot, i) => {
+	const Bullet = document.querySelectorAll('#banner .dots .dot');
+	Bullet.forEach((dot, i) => {
 		if (i === index) {
-			dot.classList.add('dot_selected');
+			dot.classList.add('dot_selected');//ajoute css
 		}
 		else {
-			dot.classList.remove('dot_selected');
+			dot.classList.remove('dot_selected');// enleve css 
 		}
 	}
 
@@ -56,12 +56,13 @@ const arrowRight = document.querySelector('#banner .arrow_right');
 // click fleche gauche
 arrowLeft.addEventListener('click', () => {
 	changeSlides('prev');
-
+	console.log("cliquez sur la fleche de gauche")
 });
 
 // click fleche droite
 arrowRight.addEventListener('click', () => {
 	changeSlides('next');
+	console.log("cliquez sur la fleche de droite")
 });
 //changeSlides appel la fonction image avant ou après 
 
@@ -83,12 +84,12 @@ slides.forEach((slide, index) => {
 		dot.classList.add('dot_selected');//ajout css au point si index a 0  
 	}
 
-	dotsContainer.appendChild(dot);
+	dotsBullet.appendChild(dot);
 });
 
 //maj point selon fleche utilisé 
-const dots = document.querySelectorAll('#banner .dots .dot');
-dots.forEach((dot, index) => {
+const Bullet = document.querySelectorAll('#banner .dots .dot');
+Bullet.forEach((dot, index) => {
 
 	dot.addEventListener('click', () => {
 
@@ -103,18 +104,18 @@ dots.forEach((dot, index) => {
 const banner = document.getElementById('banner');
 const leftArrow = document.querySelector('.arrow_left');
 const rightArrow = document.querySelector('.arrow_right');
-//const dotsContainer = document.querySelector('dots');
+//const dots = document.querySelector('dots');
 
 banner.addEventListener('mouseover', () => {
 	// La souris survole le conteneur d'images
 	leftArrow.style.display = 'block';
 	rightArrow.style.display = 'block';
-	//dotsContainer.style.display = 'block';
+	//dotsBullet.style.display = 'block';
 });
 
 banner.addEventListener('mouseout', () => {
 	// La souris quitte le conteneur d'images
 	leftArrow.style.display = 'none';
 	rightArrow.style.display = 'none';
-	//dotsContainer.style.display = 'none';
+	//dotsBullet.style.display = 'none';
 });
